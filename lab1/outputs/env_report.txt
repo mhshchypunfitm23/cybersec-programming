@@ -1,0 +1,18 @@
+=== Перевірка середовища Kali Linux ===
+Дата: Mon Nov 23 09:35:30 AM EST 2026
+Користувач: kali
+
+--- Статус фаєрволу (UFW) ---
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+--- Правила аудиту (auditd) ---
+-w /etc/passwd -p wa -k watch_passwd
+
+--- Перевірка нового користувача ---
+uid=1001(student_sec) gid=1001(student_sec) groups=1001(student_sec),27(sudo),100(users)
+
+--- Відкриті мережеві порти ---
+Netid State Recv-Q Send-Q Local Address:Port Peer Address:Port
