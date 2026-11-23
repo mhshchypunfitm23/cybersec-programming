@@ -1,0 +1,15 @@
+=== ЗВІТ З ОЦІНКИ ЗАГРОЗ ТА РИЗИКІВ (ДО / ПІСЛЯ ЗАХИСТУ) ===
+
+Кількість виявлених загроз PyTM ДО впровадження захисту: 161
+Кількість виявлених загроз PyTM ПІСЛЯ впровадження захисту: 161
+
+Компонент / Загроза              | CVSS До  | CVSS Після | OWASP До       | OWASP Після 
+----------------------------------------------------------------------------------------
+Grades API (SQL Injection)       | 9.8      | 2.4        | Critical (8.5) | Low (2.1)   
+Internal Traffic (Sniffing)      | 7.5      | 1.8        | High (7.2)     | Low (1.5)   
+Student Database (Unencrypted)   | 8.2      | 2.0        | High (7.8)     | Low (1.9)   
+
+Впроваджені заходи захисту:
+- Grades API (SQL Injection) (CWE-89 / CVE-2023-38545): Параметризовані SQL-запити та sanitizesInput=True
+- Internal Traffic (Sniffing) (CWE-319 / CVE-2022-3602): Перехід з HTTP на HTTPS/mTLS між сервісами
+- Student Database (Unencrypted) (CWE-311 / CVE-2023-2454): Увімкнення TDE-шифрування БД та TLS-з'єднання
