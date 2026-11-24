@@ -1,0 +1,10 @@
+== Docker ==
+NAMES          IMAGE              STATUS         PORTS
+lab3-nginx-1   nginx:alpine       Up 4 minutes   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+lab3-api-1     python:3.11-slim   Up 4 minutes   
+lab3-db-1      postgres:15        Up 4 minutes   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp
+
+== Nginx ==
+
+== API ==
+{"status":"ok"}
