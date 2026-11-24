@@ -1,27 +1,19 @@
-# ЛР №3. Моделювання загроз та оцінка ризиків
+# Лабораторна робота №3: Моделювання загроз та оцінка ризиків
 
-> Це **поради**, а не інструкція. Можливі неточності; перевіряйте офіційні джерела.
+**Об'єкт дослідження:** Демонстраційний стенд вебпорталу університету (`Nginx + FastAPI + PostgreSQL`).
 
-## Склад
-- docker-compose.yml — Nginx (8080), FastAPI (8000), PostgreSQL (5432)
-- api/app/main.py — простий API (health, items)
-- nginx/nginx.conf — reverse proxy
-- model/pytm_model.py — базова PyTM‑модель Client→API→DB
-- assessment/risk_templates.md — шаблони CVSS і DREAD
-- diagrams/architecture.txt — текстова схема
-- scripts/collect_env.sh — збір технічних відомостей
+## Склад проєкту
+* `docker-compose.yml`, `nginx/nginx.conf`, `api/app/main.py` — демонстраційне трирівневе середовище (Reverse Proxy -> REST API -> БД).
+* `diagrams/architecture.txt` — опис логіки взаємодії компонентів, меж довіри та критичних активів.
+* `model/pytm_model.py` — модель загроз на Python (`PyTM`) за методологією STRIDE.
+* `scripts/collect_env.sh` — скрипт збору конфігурації контейнерів та перевірки працездатності сервісів.
+* `scripts/evaluate_risks.py` — Python-скрипт розрахунку оцінок ризиків за шкалами **CVSS v3.1** та **DREAD**.
+* `assessment/risk_templates.md` — підсумковий звіт оцінки ризиків до і після впровадження захисних заходів та рекомендації.
+* `outputs/` — візуальна діаграма потоків даних (`dfd_architecture.png`), звіт середовища (`env_report.txt`) та JSON-звіт загроз (`threats.json`).
 
-## Швидкий старт
+## Запуск
 ```bash
-# 1) Запуск сервісів
-docker compose up -d
-
-# 2) Перевірка
-curl http://localhost:8080/health
-curl 'http://localhost:8080/items?q=test'
-
-# 3) PyTM
-python3 -m venv .venv && source .venv/bin/activate
-pip install pytm==1.6.1
-python model/pytm_model.py > outputs/threats.txt
+sudo docker-compose up -d
+python3 model/pytm_model.py --dfd | dot -Tpng -o outputs/dfd_architecture.png
+python3 scripts/evaluate_risks.py
 ```
