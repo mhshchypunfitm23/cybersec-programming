@@ -1,5 +1,5 @@
-
 import sqlite3, os, pathlib
+from werkzeug.security import generate_password_hash
 
 DB_PATH = os.environ.get("DB_PATH", "demo.sqlite3")
 
@@ -11,21 +11,28 @@ cur.executescript(
     CREATE TABLE users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         username TEXT UNIQUE NOT NULL,
-        password TEXT NOT NULL  -- plaintext for demo (intentionally vulnerable)
+        password TEXT NOT NULL
     );
     CREATE TABLE posts (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT NOT NULL,
         body TEXT NOT NULL
     );
-    INSERT INTO users(username, password) VALUES
-        ("alice", "alice123"),
-        ("bob", "bob12345");
-    INSERT INTO posts(title, body) VALUES
-        ("Welcome", "This is a demo post."),
-        ("Security Tips", "Never trust user input. Use parameterized queries.");
     '''
 )
+
+users_data = [
+    ("alice", generate_password_hash("alice123")),
+    ("bob", generate_password_hash("bob12345"))
+]
+cur.executemany("INSERT INTO users(username, password) VALUES (?, ?)", users_data)
+
+posts_data = [
+    ("Welcome", "This is a demo post."),
+    ("Security Tips", "Never trust user input. Use parameterized queries.")
+]
+cur.executemany("INSERT INTO posts(title, body) VALUES (?, ?)", posts_data)
+
 conn.commit()
 conn.close()
-print(f"Initialized SQLite DB at {DB_PATH}")
+print(f"Initialized secure SQLite DB at {DB_PATH}")
