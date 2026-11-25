@@ -1,0 +1,10 @@
+{"timestamp": "2026-11-25T14:00:02.094758+00:00", "level": "INFO", "event": "sym.key.generate_or_rotate", "label": "portal_key", "version": 1, "bits": 256}
+{"timestamp": "2026-11-25T14:00:02.171156+00:00", "level": "INFO", "event": "sym.encrypt", "mode": "gcm", "bits": 256, "in": "data/sample.txt", "sec": 0.00111}
+{"timestamp": "2026-11-25T14:00:02.240362+00:00", "level": "INFO", "event": "sym.decrypt", "mode": "gcm", "in": "outputs/sample.gcm", "sec": 0.00086}
+{"timestamp": "2026-11-25T14:00:16.585314+00:00", "level": "INFO", "event": "rsa.keygen", "bits": 2048, "sec": 0.0528}
+{"timestamp": "2026-11-25T14:00:16.731401+00:00", "level": "INFO", "event": "rsa.sign", "in": "data/sample.txt", "sig": "outputs/sample.sig"}
+{"timestamp": "2026-11-25T14:00:16.802899+00:00", "level": "INFO", "event": "rsa.verify", "in": "data/sample.txt", "valid": true}
+{"timestamp": "2026-11-25T14:00:35.728053+00:00", "level": "INFO", "event": "hybrid.encrypt", "in": "data/sample.txt", "sec": 0.00133}
+{"timestamp": "2026-11-25T14:00:35.847491+00:00", "level": "INFO", "event": "hybrid.decrypt", "in": "outputs/sample.hybr", "sec": 0.04727}
+{"timestamp": "2026-11-25T14:00:35.928018+00:00", "level": "ERROR", "event": "crypto.error", "cmd": "sym", "error": "Невірний формат зашифрованого файлу (пошкоджений заголовок)"}
+{"timestamp": "2026-11-25T14:02:07.446839+00:00", "level": "INFO", "event": "bench.completed", "sizes": ["100KB", "1MB", "5MB"], "rsa_bits": [2048, 3072]}
