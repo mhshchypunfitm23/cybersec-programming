@@ -1,0 +1,3 @@
+{"ts": "2026-11-27T13:59:06Z", "level": "INFO", "msg": "enc", "mode": "GCM", "in": "data/sample.txt", "out": "outputs/sample.enc", "sec": 0.0009, "taglen": 16}
+{"ts": "2026-11-27T14:00:13Z", "level": "INFO", "msg": "dec", "mode": "GCM", "in": "outputs/sample.enc", "out": "outputs/sample.dec", "sec": 0.0009, "ok": true, "error": ""}
+{"ts": "2026-11-27T14:00:13Z", "level": "INFO", "msg": "dec", "mode": "GCM", "in": "outputs/sample.enc.tampered", "out": "outputs/fail.dec", "sec": 0.0009, "ok": false, "error": ""}
