@@ -1,0 +1,11 @@
+{"ts": "2026-11-27T13:35:30Z", "event": "tls.handshake", "peer": "('127.0.0.1', 54858)", "tls_version": "TLSv1.3", "cipher": ["TLS_AES_256_GCM_SHA384", "TLSv1.3", 256]}
+{"ts": "2026-11-27T13:35:30Z", "event": "auth.ok", "peer": "('127.0.0.1', 54858)", "user": "alice"}
+{"ts": "2026-11-27T13:35:30Z", "event": "data.ok", "peer": "('127.0.0.1', 54858)", "user": "alice", "bytes": 38}
+{"ts": "2026-11-27T13:35:30Z", "event": "conn.closed", "peer": "('127.0.0.1', 54858)"}
+{"ts": "2026-11-27T13:36:17Z", "event": "tls.handshake", "peer": "('127.0.0.1', 46580)", "tls_version": "TLSv1.3", "cipher": ["TLS_AES_256_GCM_SHA384", "TLSv1.3", 256]}
+{"ts": "2026-11-27T13:36:17Z", "event": "auth.ok", "peer": "('127.0.0.1', 46580)", "user": "alice"}
+{"ts": "2026-11-27T13:36:17Z", "event": "data.ok", "peer": "('127.0.0.1', 46580)", "user": "alice", "bytes": 25}
+{"ts": "2026-11-27T13:36:17Z", "event": "conn.closed", "peer": "('127.0.0.1', 46580)"}
+{"ts": "2026-11-27T13:36:17Z", "event": "tls.handshake", "peer": "('127.0.0.1', 46592)", "tls_version": "TLSv1.3", "cipher": ["TLS_AES_256_GCM_SHA384", "TLSv1.3", 256]}
+{"ts": "2026-11-27T13:36:17Z", "event": "auth.fail", "peer": "('127.0.0.1', 46592)", "user": "alice", "reason": "invalid"}
+{"ts": "2026-11-27T13:36:17Z", "event": "conn.closed", "peer": "('127.0.0.1', 46592)"}
